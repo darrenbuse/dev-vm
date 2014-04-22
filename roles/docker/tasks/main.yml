@@ -9,7 +9,7 @@
   pip: name=docker-py
   sudo: True
 - name: Check if base image is cached
-  shell: "[ -d /cache/ubuntu.tar  ] && echo 'Found' || echo ''"
+  shell: "[ -f /cache/ubuntu.tar  ] && echo 'Found' || echo ''"
   register: ubuntu_cache_exists
 - name: Grab cached base image
   shell: docker load < /cache/ubuntu.tar
