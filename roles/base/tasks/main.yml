@@ -11,3 +11,9 @@
 - name: default zshrc to prevent problems
   shell: touch ~/.zshrc
   sudo: True
+- name: Add ansible repo
+  apt_repository: repo='ppa:rquillo/ansible'
+  sudo: True
+- name: Install ansible
+  apt: pkg=ansible
+  sudo: True
