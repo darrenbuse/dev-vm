@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:saucy
 RUN apt-get install -y python-software-properties
 RUN apt-add-repository ppa:rquillo/ansible
 RUN apt-get update -y
