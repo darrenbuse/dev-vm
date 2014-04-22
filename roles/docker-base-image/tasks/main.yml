@@ -1,0 +1,12 @@
+---
+- name: Create Docker directory
+  file: dest="/home/vagrant/docker" state=directory
+- name: Create Docker base directory
+  file: dest="/home/vagrant/docker/base" state=directory
+- name: Copy Dockerfile
+  copy: src="../files/Dockerfile" dest="/home/vagrant/docker/base/Dockerfile"
+- name: Copy base Playbook
+  copy: src="../../base/tasks/main.yml" dest="/home/vagrant/docker/base/base.yml"
+- name: Build base image.
+  shell: docker build -t darrenbuse/base /home/vagrant/docker/base/
+  sudo: True

@@ -1,0 +1,13 @@
+---
+- name: Install vim
+  apt: pkg=vim state=latest
+  sudo: True
+- name: Install Zsh
+  apt: pkg=zsh state=latest
+  sudo: True
+- name: set zsh as default shell
+  shell: chsh -s /bin/zsh vagrant
+  sudo: True
+- name: default zshrc to prevent problems
+  shell: touch ~/.zshrc
+  sudo: True

@@ -1,0 +1,12 @@
+---
+- name: Install tmux
+  apt: pkg=tmux state=latest
+  sudo: True
+- name: Install tig
+  apt: pkg=tig state=latest
+  sudo: True
+- name: Install glances
+  apt: pkg=glances state=latest
+  sudo: True
+
+#gem pip npm

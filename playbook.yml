@@ -1,0 +1,18 @@
+---
+- hosts: devmaster
+  tasks:
+    - name: ensure ntpd is at the latest version
+      apt: pkg=ntp state=latest
+      sudo: True
+      notify:
+      - restart ntpd
+  roles:
+    - base
+    - docker
+    - cache
+    - dotfiles
+    - devtools
+    #- docker-base-image
+  handlers:
+    - name: restart ntpd
+      shell: sudo ntpd
