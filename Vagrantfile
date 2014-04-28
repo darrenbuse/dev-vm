@@ -8,6 +8,7 @@ Vagrant.configure(API_VERSION) do |config|
     config.vm.network "private_network", ip: "10.12.0.10", netmask: "255.255.0.0"
     config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
         vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
         vb.customize ["modifyvm", :id, "--nictype2", "Am79C973"]
     end 
