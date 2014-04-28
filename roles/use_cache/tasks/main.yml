@@ -1,0 +1,7 @@
+---
+- name: Apt cache
+  shell: 'echo "Acquire::http { Proxy \"http://10.2.1.10:3142\";   };" > /etc/apt/apt.conf.d/02cache'
+  sudo: True
+- name: Apt cache https
+  shell: 'echo "Acquire::https { Proxy \"false\";   };" >> /etc/apt/apt.conf.d/02cache'
+  sudo: True
