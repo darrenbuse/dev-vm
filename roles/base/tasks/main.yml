@@ -1,4 +1,7 @@
 ---
+- name: Create user
+  user: name=darren shell=/bin/zsh
+  sudo: True
 - name: Install vim
   apt: pkg=vim state=latest
   sudo: True
@@ -6,14 +9,28 @@
   apt: pkg=zsh state=latest
   sudo: True
 - name: set zsh as default shell
-  shell: chsh -s /bin/zsh vagrant
+  shell: chsh -s /bin/zsh darren
   sudo: True
 - name: default zshrc to prevent problems
   shell: touch ~/.zshrc
+  sudo: True
+- name: python-software-properties
+  apt: pkg=python-software-properties
   sudo: True
 - name: Add ansible repo
   apt_repository: repo='ppa:rquillo/ansible'
   sudo: True
 - name: Install ansible
   apt: pkg=ansible
+  sudo: True
+- name: Install tree
+  apt: pkg=tree
+  sudo: True
+- name: ssh dir
+  file: path=/home/darren/.ssh/ state=directory
+  sudo: True
+  sudo_user: darren
+- name: Keys
+  copy: src=~/.ssh/id_rsa dest=/home/darren/.ssh/id_rsa mode=600
+  sudo_user: darren
   sudo: True

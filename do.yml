@@ -1,5 +1,5 @@
 ---
-- hosts: devmaster
+- hosts: do.da2.io
   tasks:
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
@@ -7,13 +7,11 @@
       notify:
       - restart ntpd
   roles:
-    - use_cache
     - base
+    - server
     - docker
-    #- cache
     - dotfiles
     - devtools
-    - development-full
     #- docker-base-image
   handlers:
     - name: restart ntpd

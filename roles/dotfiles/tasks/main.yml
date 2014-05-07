@@ -1,9 +1,21 @@
 ---
-- name: Sort known hosts
-  lineinfile: dest=/home/vagrant/.ssh/known_hosts regexp=^${item.host} line="${item.line}" create=True
-  with_items:
-       - { "host": "github.com", "line": "github.com,207.97.227.239 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="  }
+- name: create known_hosts if missing
+  file: path=/home/darren/.ssh/known_hosts state=touch
+  sudo_user: darren
+  sudo: True
+- name: Add Github key. 
+  shell: ssh-keygen -R github.com && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+  sudo_user: darren
+  sudo: True
+- name: Add bitbucket key. 
+  shell: ssh-keygen -R bitbucket.org && ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts
+  sudo_user: darren
+  sudo: True
 - name: Checkout dotfiles from git
-  git: repo=git@bitbucket.org:darrenbuse/dotfiles.git dest=/home/vagrant/dotfiles/ accept_hostkey=True
+  shell: git clone git@bitbucket.org:darrenbuse/dotfiles.git --recursive chdir=/home/darren/ creates=/home/darren/dotfiles/
+  sudo_user: darren
+  sudo: True
 - name: Link files
-  shell: /home/vagrant/dotfiles/link.sh
+  shell: /home/darren/dotfiles/link.sh
+  sudo_user: darren
+  sudo: True

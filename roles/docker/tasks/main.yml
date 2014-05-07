@@ -3,7 +3,7 @@
   shell: curl -s https://get.docker.io/ubuntu/ | sudo sh creates=/usr/bin/docker
   sudo: True
 - name: Run docker without using sudo
-  shell: gpasswd -a vagrant docker && service docker restart
+  shell: gpasswd -a darren docker && service docker restart
   sudo: True
 - name: install pip for docker-py
   apt: pkg=python-pip state=latest
@@ -14,6 +14,10 @@
 - name: Check if base image is cached
   shell: "[ -f /cache/ubuntu.tar  ] && echo 'Found' || echo ''"
   register: ubuntu_cache_exists
+- name: Check if imported
+  shell: docker images ubuntu
+  register: ubuntu_image
+  sudo: True
 - name: Grab cached base image
   shell: docker load < /cache/ubuntu.tar
   sudo: True
