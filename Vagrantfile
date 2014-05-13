@@ -24,6 +24,10 @@ Vagrant.configure(API_VERSION) do |config|
   end
 
   config.vm.define "devmaster" do |devmaster|
+    devmaster.vm.provider "virtualbox" do |devmastervb|
+        devmastervb.memory=2048
+        devmastervb.cpus=5
+    end
     devmaster.vm.host_name = "devmaster.local"
     devmaster.vm.network "private_network", ip: "10.12.0.10", netmask: "255.255.0.0"
     devmaster.vm.provision "shell", inline: 'echo "Acquire::http { Proxy \"http://10.2.1.10:8000\";  };" > /etc/apt/apt.conf.d/02cache' 
