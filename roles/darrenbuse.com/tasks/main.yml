@@ -1,0 +1,8 @@
+---
+- name: Remove darrenbuse.com
+  shell: docker stop darrenbuse.com && docker rm darrenbuse.com
+  sudo: True
+  ignore_errors: yes
+- name: Start darrenbuse.com 
+  shell: docker run -d -p 80 -e VIRTUAL_HOST=darren.da2.io --name darrenbuse.com docker.da2.io:5000/darrenbuse.com nginx
+  sudo: True

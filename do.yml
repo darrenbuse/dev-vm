@@ -12,6 +12,9 @@
     - docker
     - dotfiles
     - devtools
+    - docker-reverse-proxy
+    #- docker-registry
+    - darrenbuse.com
     #- docker-base-image
   handlers:
     - name: restart ntpd
