@@ -8,5 +8,6 @@
 - name: Install glances
   apt: pkg=glances state=latest
   sudo: True
-
-#gem pip npm
+- name: Install httpie
+  shell: pip install --upgrade httpie
+  sudo: True
