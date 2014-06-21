@@ -14,6 +14,10 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.box = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
 
   config.vm.define "cache" do |cache|
+    cache.vm.provider "virtualbox" do |devmastervb|
+        devmastervb.memory=512
+        devmastervb.cpus=1
+    end
     cache.vm.network "private_network", ip: "10.2.1.10", netmask: "255.255.0.0"
     cache.vm.provision "shell", inline: "sudo apt-get install -y squid-deb-proxy"
     cache.vm.provision "shell", inline: "sudo echo ppa.launchpad.net >> /etc/squid-deb-proxy/mirror-dstdomain.acl"
@@ -25,7 +29,7 @@ Vagrant.configure(API_VERSION) do |config|
 
   config.vm.define "devmaster" do |devmaster|
     devmaster.vm.provider "virtualbox" do |devmastervb|
-        devmastervb.memory=2048
+        devmastervb.memory=3072
         devmastervb.cpus=5
     end
     devmaster.vm.host_name = "devmaster.local"
