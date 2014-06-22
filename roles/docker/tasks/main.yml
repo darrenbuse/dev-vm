@@ -3,7 +3,7 @@
   shell: curl -s https://get.docker.io/ubuntu/ | sudo sh creates=/usr/bin/docker
   sudo: True
 - name: Run docker without using sudo
-  shell: gpasswd -a darren docker && service docker restart
+  shell: "gpasswd -a {{ user }} docker && service docker restart"
   sudo: True
 - name: install pip for docker-py
   apt: pkg=python-pip state=latest

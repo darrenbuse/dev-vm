@@ -1,21 +1,21 @@
 ---
 - name: create known_hosts if missing
-  file: path=/home/darren/.ssh/known_hosts state=touch
-  sudo_user: darren
+  file: path="/home/{{ user }}/.ssh/known_hosts" state=touch
+  sudo_user: "{{ user }}"
   sudo: True
 - name: Add Github key. 
   shell: ssh-keygen -R github.com && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-  sudo_user: darren
+  sudo_user: "{{ user }}"
   sudo: True
 - name: Add bitbucket key. 
   shell: ssh-keygen -R bitbucket.org && ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts
-  sudo_user: darren
+  sudo_user: "{{ user }}"
   sudo: True
 - name: Checkout dotfiles from git
-  shell: git clone git@bitbucket.org:darrenbuse/dotfiles.git --recursive chdir=/home/darren/ creates=/home/darren/dotfiles/
-  sudo_user: darren
+  shell: git clone git@bitbucket.org:darrenbuse/dotfiles.git --recursive chdir="/home/{{ user }}/" creates="/home/{{ user }}/dotfiles/"
+  sudo_user: "{{ user }}"
   sudo: True
 - name: Link files
-  shell: /home/darren/dotfiles/link.sh
-  sudo_user: darren
+  shell: "/home/{{ user }}/dotfiles/link.sh"
+  sudo_user: "{{ user }}"
   sudo: True

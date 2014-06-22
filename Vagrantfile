@@ -42,6 +42,6 @@ Vagrant.configure(API_VERSION) do |config|
     end
 
     devmaster.vm.provision "file", source: '~/.ssh/id_rsa', destination: '~/.ssh/id_rsa'
-    devmaster.vm.synced_folder "../..", "/home/darren/Projects", owner: 'darren', group: 'darren', :mount_options => ["dmode=777","fmode=777"] 
+    devmaster.vm.synced_folder "../..", "/home/vagrant/Projects", nfs: true
  end
 end

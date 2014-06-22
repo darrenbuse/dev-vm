@@ -1,6 +1,7 @@
+
 ---
 - name: Create user
-  user: name=darren shell=/bin/zsh
+  user: name="{{ user }}" shell=/bin/zsh
   sudo: True
 - name: Install vim
   apt: pkg=vim state=latest
@@ -9,7 +10,7 @@
   apt: pkg=zsh state=latest
   sudo: True
 - name: set zsh as default shell
-  shell: chsh -s /bin/zsh darren
+  shell: "chsh -s /bin/zsh {{ user }}"
   sudo: True
 - name: default zshrc to prevent problems
   shell: touch ~/.zshrc
@@ -27,10 +28,10 @@
   apt: pkg=tree
   sudo: True
 - name: ssh dir
-  file: path=/home/darren/.ssh/ state=directory
+  file: path="/home/{{ user }}/.ssh/" state=directory
   sudo: True
-  sudo_user: darren
+  sudo_user: "{{ user }}"
 - name: Keys
-  copy: src=~/.ssh/id_rsa dest=/home/darren/.ssh/id_rsa mode=600
-  sudo_user: darren
+  copy: src=~/.ssh/id_rsa dest="/home/{{ user }}/.ssh/id_rsa" mode=600
+  sudo_user: "{{ user }}"
   sudo: True

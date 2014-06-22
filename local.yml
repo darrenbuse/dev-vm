@@ -1,5 +1,5 @@
 ---
-- hosts: devmaster
+- hosts: localhost
   vars:
     user: vagrant
   tasks:
@@ -9,11 +9,11 @@
       notify:
       - restart ntpd
   roles:
-    - use_cache
+    #- use_cache
     - base
     - docker
     #- cache
-    #- dotfiles
+    - dotfiles
     - devtools
     - development-full
     #- docker-base-image

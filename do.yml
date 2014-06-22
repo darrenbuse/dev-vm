@@ -1,5 +1,7 @@
 ---
 - hosts: do.da2.io
+  vars:
+    user: darren
   tasks:
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest

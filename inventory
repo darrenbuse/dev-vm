@@ -1,1 +1,2 @@
 do.da2.io ansible_connection=ssh        ansible_ssh_user=root
+localhost              ansible_connection=local
