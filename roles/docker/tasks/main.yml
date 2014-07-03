@@ -1,6 +1,9 @@
 ---
+- name: Install curl
+  apt: pkg=curl state=latest
+  sudo: True
 - name: install docker
-  shell: curl -s https://get.docker.io/ubuntu/ | sudo sh creates=/usr/bin/docker
+  shell: curl -s https://get.docker.io/ubuntu/ | sudo sh #creates=/usr/bin/docker
   sudo: True
 - name: Run docker without using sudo
   shell: "gpasswd -a {{ user }} docker && service docker restart"

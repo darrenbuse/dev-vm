@@ -1,7 +1,6 @@
 ---
-- hosts: devmaster
-  vars:
-    user: vagrant
+- hosts: 127.0.0.1
+  connection: local
   tasks:
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
@@ -11,9 +10,9 @@
   roles:
       #- use_cache
     - base
-      #- docker
+    - docker
     #- cache
-    #- dotfiles
+    - dotfiles
     - devtools
     - development-full
     #- docker-base-image
