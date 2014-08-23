@@ -21,6 +21,7 @@
     - dotfiles
     - docker
     - db.java
+    - db.node
   handlers:
     - name: restart ntpd
       shell: sudo ntpd
