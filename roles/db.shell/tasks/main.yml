@@ -1,0 +1,13 @@
+---
+- name: Install Zsh
+  apt: pkg=zsh state=latest
+  sudo: True
+- name: set zsh as default shell
+  shell: "chsh -s /bin/zsh {{ user }}"
+  sudo: True
+- name: default zshrc to prevent problems
+  shell: touch ~/.zshrc
+  sudo: false
+- name: Install Tmux
+  apt: pkg=tmux state=latest
+  sudo: True

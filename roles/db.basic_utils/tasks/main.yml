@@ -1,0 +1,11 @@
+
+---
+- name: Install vim
+  apt: pkg=vim state=latest
+  sudo: True
+- name: Install tree
+  apt: pkg=tree
+  sudo: True
+- name: Install curl
+  apt: pkg=curl
+  sudo: True

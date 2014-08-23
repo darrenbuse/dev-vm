@@ -1,8 +1,0 @@
----
-- name: Remove reverse-proxy
-  shell: docker stop reverse-proxy && docker rm reverse-proxy
-  sudo: True
-  ignore_errors: True
-- name: Start reverse-proxy 
-  shell: docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock -t --name reverse-proxy jwilder/nginx-proxy 
-  sudo: True

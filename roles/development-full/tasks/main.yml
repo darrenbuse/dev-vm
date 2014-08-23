@@ -1,4 +1,0 @@
----
-- name: Set timezone to London
-  shell: timedatectl set-timezone Europe/London
-  sudo: True

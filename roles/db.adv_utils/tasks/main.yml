@@ -1,0 +1,15 @@
+---
+- name: Install Meld
+  apt: pkg=meld
+  sudo: True
+- name: Install Httpie
+  pip: name=httpie extra_args='--user'
+- name: Install tig
+  apt: pkg=tig
+  sudo: True
+- name: Install glances
+  apt: pkg=glances state=latest
+  sudo: True
+- name: Install git flow
+  apt: pkg=git-flow state=latest
+  sudo: True
