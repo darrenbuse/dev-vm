@@ -26,5 +26,5 @@
   sudo: True
   when: ubuntu_cache_exists.stdout
 - name: Grab base image
-  shell: docker pull ubuntu:saucy
+  shell: docker pull ubuntu:trusty
   sudo: True
