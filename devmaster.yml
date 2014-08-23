@@ -22,6 +22,7 @@
     - docker
     - db.java
     - db.node
+    - db.gvm
   handlers:
     - name: restart ntpd
       shell: sudo ntpd

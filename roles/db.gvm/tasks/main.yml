@@ -1,0 +1,9 @@
+---
+- name: Install gvm
+  shell: curl -s get.gvmtool.net | bash
+  sudo: false
+- name: Auto accept defaults
+  shell: echo "gvm_auto_answer=true" > $HOME/.gvm/etc/config
+- name: Install groovy
+  shell: bash -c 'source "$HOME/.gvm/bin/gvm-init.sh" && gvm install groovy'
+  sudo: false

@@ -9,3 +9,6 @@
 - name: Install curl
   apt: pkg=curl
   sudo: True
+- name: Install unzip
+  apt: pkg=unzip
+  sudo: True

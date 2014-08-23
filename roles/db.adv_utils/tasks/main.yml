@@ -1,6 +1,6 @@
 ---
 - name: Install Meld
-  apt: pkg=meld ensure=absent
+  apt: pkg=meld state=absent
   sudo: True
 - name: Install Httpie
   pip: name=httpie extra_args='--user'
