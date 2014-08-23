@@ -8,15 +8,18 @@
       sudo: True
       notify:
       - restart ntpd
+    - name: Set timezone to London
+      shell: timedatectl set-timezone Europe/London
+      sudo: True
   roles:
-      #- use_cache
-    - base
-      #- docker
-    #- cache
-    #- dotfiles
-    - devtools
-    - development-full
-    #- docker-base-image
+    # use_cache
+    - db.basic_utils
+    - db.known_hosts
+    - db.pkg_mgt
+    - db.shell
+    - db.adv_utils
+    - dotfiles
+    - docker
   handlers:
     - name: restart ntpd
       shell: sudo ntpd
