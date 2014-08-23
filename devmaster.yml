@@ -20,6 +20,7 @@
     - db.adv_utils
     - dotfiles
     - docker
+    - db.java
   handlers:
     - name: restart ntpd
       shell: sudo ntpd
