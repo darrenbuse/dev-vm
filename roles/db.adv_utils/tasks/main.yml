@@ -13,3 +13,9 @@
 - name: Install git flow
   apt: pkg=git-flow state=latest
   sudo: True
+- name: Jira CMD
+  npm: name=jira-cmd global=true
+  sudo: True
+- name: Install ngrep - network grep
+  apt: pkg=ngrep state=latest
+  sudo: True

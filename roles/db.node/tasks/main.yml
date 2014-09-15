@@ -9,3 +9,16 @@
 - name: Install node
   apt: pkg=nodejs
   sudo: True
+- name: Set npm dir
+  shell: npm config set prefix ~/npm
+- name: Install common node / coffee utils
+  npm: name={{ item }} global=True
+  sudo: false
+  with_items:
+      - coffee-script
+      - grunt-cli
+      - coffeelint
+      - coffeelint-newline-at-eof
+      - mocha
+      - gulp
+      - coffee-jshint
