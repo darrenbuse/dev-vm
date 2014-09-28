@@ -39,7 +39,7 @@ Vagrant.configure(API_VERSION) do |config|
     devmaster.vm.provision "file", source: '~/.ssh/id_rsa', destination: '/home/vagrant/.ssh/id_rsa'
     devmaster.vm.provision "ansible" do |ansible|
         ansible.playbook = "../devmaster.yml"
-        ansible.verbose =  'vvvv'
+        ansible.verbose =  'v'
         ansible.raw_ssh_args = ["-o UserKnownHostsFile=/dev/null"]
     end
 
