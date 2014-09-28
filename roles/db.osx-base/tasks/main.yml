@@ -1,0 +1,18 @@
+---
+- homebrew_cask: name=google-chrome
+- homebrew_cask: name=flux
+- homebrew_cask: name=gitx
+- homebrew_cask: name=google-drive
+- homebrew_cask: name=lastpass-universal
+- homebrew_cask: name=spotify
+- homebrew_cask: name=sonos
+- homebrew_cask: name=virtualbox
+- homebrew_cask: name=vagrant
+- homebrew_cask: name=java
+- homebrew_cask: name=atom
+- homebrew_cask: name=intellij-idea
+- homebrew_cask: name=disk-inventory-x
+- homebrew: name=tmux
+- homebrew: name=zsh
+- name: set zsh as default shell
+  shell: "chsh -s /bin/zsh {{ user  }}"

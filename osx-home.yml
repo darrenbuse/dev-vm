@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    user: darrenbuse
+  sudo: no
+  roles:
+    - db.osx-base
+    - db.known_hosts
+    - dotfiles
+
