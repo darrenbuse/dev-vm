@@ -1,8 +1,8 @@
 
 ---
-- name: Github keys
-  shell: ssh-keyscan -H github.com >> /home/vagrant/.ssh/known_hosts
-  sudo: false
-- name: Bitbucket Keys
-  shell: ssh-keyscan -H bitbucket.org >> /home/vagrant/.ssh/known_hosts
-  sudo: false
+  - name: Github keys
+    shell: ssh-keyscan -H github.com >> {{ lookup('env','HOME') }}/.ssh/known_hosts
+    sudo: false
+  - name: Bitbucket Keys
+    shell: ssh-keyscan -H bitbucket.org >> {{ lookup('env','HOME') }}/.ssh/known_hosts
+    sudo: false
