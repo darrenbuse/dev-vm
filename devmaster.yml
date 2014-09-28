@@ -17,11 +17,11 @@
     - db.known_hosts
     - db.pkg_mgt
     - db.shell
+    - db.node
     - db.adv_utils
     - dotfiles
     - docker
     - db.java
-    - db.node
     - db.gvm
   handlers:
     - name: restart ntpd
