@@ -21,4 +21,4 @@
       - coffeelint-newline-at-eof
       - mocha
       - gulp
-      - coffee-jshint
+      #- coffee-jshint
