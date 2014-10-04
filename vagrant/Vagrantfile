@@ -31,6 +31,8 @@ Vagrant.configure(API_VERSION) do |config|
     devmaster.vm.provider "virtualbox" do |devmastervb|
         devmastervb.memory=3048
         devmastervb.cpus=5
+        devmastervb.customize ["modifyvm", :id, "--uart1", "0x3f8", "4"]
+        devmastervb.customize ["modifyvm", :id, "--uartmode1", "server", "/tmp/my_tty"]
     end
 
     devmaster.vm.host_name = "devmaster"
