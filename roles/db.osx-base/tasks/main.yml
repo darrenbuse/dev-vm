@@ -18,4 +18,4 @@
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.
-  shell: zsh -c \"source {{ ansible_env.HOME  }}/dotfiles/osx/bootstrap.sh\"
+  shell: "zsh -c \"source {{ ansible_env.HOME  }}/dotfiles/osx/bootstrap.sh\""
