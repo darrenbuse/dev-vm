@@ -1,10 +1,12 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: no           
   sudo: no
   vars:
     user: dbuse
   roles:
     - db.osx-base
+    - db.known_hosts                                                                                                                              
+    - dotfiles
+    - db.osx-work
 
