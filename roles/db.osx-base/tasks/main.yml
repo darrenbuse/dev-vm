@@ -14,6 +14,7 @@
 - homebrew_cask: name=disk-inventory-x
 - homebrew: name=tmux
 - homebrew: name=zsh
+- homebrew: name=tig
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.
