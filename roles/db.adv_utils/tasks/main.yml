@@ -19,3 +19,6 @@
 - name: Install ngrep - network grep
   apt: pkg=ngrep state=latest
   sudo: True
+- name: Install AWS Tools
+  pip: name=awscli state=latest
+  sudo: True
