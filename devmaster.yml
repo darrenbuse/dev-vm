@@ -2,6 +2,8 @@
 - hosts: devmaster
   vars:
     user: vagrant
+    rvm1_rubies:
+          - 'ruby-2.1.2'
   tasks:
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
@@ -23,6 +25,8 @@
     - docker
     - db.java
     - db.gvm
+    - { role: rvm_io.rvm1-ruby, sudo: true }
+    - db.cucumber
   handlers:
     - name: restart ntpd
       shell: sudo ntpd
