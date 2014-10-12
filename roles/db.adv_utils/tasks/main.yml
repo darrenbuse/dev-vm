@@ -3,7 +3,8 @@
   apt: pkg=meld state=absent
   sudo: True
 - name: Install Httpie
-  pip: name=httpie extra_args='--user'
+  pip: name=httpie
+  sudo: True
 - name: Install tig
   apt: pkg=tig
   sudo: True
