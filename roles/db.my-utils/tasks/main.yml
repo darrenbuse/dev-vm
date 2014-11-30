@@ -1,0 +1,5 @@
+---
+- name: Get ansible-role
+  git: repo=git@github.com:darrenbuse/ansible-role.git dest=/home/vagrant/Projects/ansible-role
+- name: Install to path
+  shell: /home/vagrant/Projects/ansible-role/install.sh
