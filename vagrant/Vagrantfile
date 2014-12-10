@@ -13,20 +13,6 @@ Vagrant.configure(API_VERSION) do |config|
 
   config.vm.box = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
 
-  config.vm.define "cache" do |cache|
-    cache.vm.provider "virtualbox" do |devmastervb|
-        devmastervb.memory=256
-        devmastervb.cpus=1
-    end
-    cache.vm.network "private_network", ip: "10.12.0.1", netmask: "255.255.0.0"
-    cache.vm.provision "shell", inline: "sudo apt-get install -y squid-deb-proxy"
-    cache.vm.provision "shell", inline: "sudo echo ppa.launchpad.net >> /etc/squid-deb-proxy/mirror-dstdomain.acl"
-    cache.vm.synced_folder "../apt-cache", "/var/cache/apt-cacher-ng", :mount_options => ["dmode=777","fmode=777"] 
-    cache.vm.provision "file", source: './squid-deb-proxy.conf', destination: '/home/vagrant/squid-deb-proxy.conf'
-    cache.vm.provision "shell", inline: "sudo cp /home/vagrant/squid-deb-proxy.conf /etc/squid-deb-proxy/squid-deb-proxy.conf"
-    cache.vm.provision "shell", inline: "sudo service squid-deb-proxy restart"
-  end
-
   config.vm.define "devmaster" do |devmaster|
     devmaster.vm.provider "virtualbox" do |devmastervb|
         devmastervb.memory=3048
@@ -46,6 +32,7 @@ Vagrant.configure(API_VERSION) do |config|
     end
 
     devmaster.vm.synced_folder "../../..", "/home/vagrant/Projects", nfs: true, nfs_udp: false
-    devmaster.vm.synced_folder "../../../../notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
+    home = ENV["HOME"]
+    devmaster.vm.synced_folder home + "/notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
  end
 end
