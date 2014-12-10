@@ -1,4 +1,6 @@
 ---
+- homebrew_tap: tap=caskroom/cask
+- homebrew: name=brew-cask state=latest
 - homebrew_tap: tap=caskroom/versions
 - homebrew_cask: name=google-chrome-beta
 - homebrew_cask: name=flux
