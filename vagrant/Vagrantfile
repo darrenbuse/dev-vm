@@ -46,5 +46,6 @@ Vagrant.configure(API_VERSION) do |config|
     end
 
     devmaster.vm.synced_folder "../../..", "/home/vagrant/Projects", nfs: true, nfs_udp: false
+    devmaster.vm.synced_folder "../../../../notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
  end
 end
