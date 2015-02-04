@@ -23,3 +23,9 @@
 - name: Install AWS Tools
   pip: name=awscli state=latest
   sudo: True
+- name: Install AWS Tools
+  pip: name=aws state=latest
+  sudo: True
+- name: Install jq - json sed had a baby
+  apt: pkg=jq state=latest
+  sudo: True

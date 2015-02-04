@@ -12,3 +12,6 @@
 - name: Install unzip
   apt: pkg=unzip
   sudo: True
+- name: Install wget
+  apt: pkg=wget
+  sudo: True
