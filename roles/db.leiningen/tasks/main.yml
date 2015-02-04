@@ -1,0 +1,11 @@
+---
+#From https://github.com/owainlewis/hackerlinks/blob/master/provisioning/leiningen/roles/leiningen/tasks/main.yml
+- name: ensure wget is installed
+  apt: pkg=wget state=installed
+
+- name: get lein script
+  command: wget --no-check-certificate -O /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/preview/bin/lein
+  sudo: True
+
+- name: make executable
+  command: chmod 755 /usr/local/bin/lein

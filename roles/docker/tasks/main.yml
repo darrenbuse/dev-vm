@@ -14,20 +14,6 @@
 - name: install docker-py
   pip: name=docker-py
   sudo: True
-- name: Check if base image is cached
-  shell: "[ -f /cache/ubuntu.tar  ] && echo 'Found' || echo ''"
-  register: ubuntu_cache_exists
-- name: Check if imported
-  shell: docker images ubuntu
-  register: ubuntu_image
-  sudo: True
-- name: Grab cached base image
-  shell: docker load < /cache/ubuntu.tar
-  sudo: True
-  when: ubuntu_cache_exists.stdout
-- name: Grab base image
-  shell: docker pull ubuntu:trusty
-  sudo: True
 - name: Install fig
   shell: curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
   sudo: True

@@ -1,5 +1,5 @@
 ---
-- name: Checkout dotfiles from git
+- name: Checkout dotfiles from git - is ssh agent running?
   git: repo=ssh://git@bitbucket.org/darrenbuse/dotfiles.git recursive=yes dest="{{ ansible_env.HOME  }}/dotfiles/" accept_hostkey=yes update=yes
   sudo: no
   
