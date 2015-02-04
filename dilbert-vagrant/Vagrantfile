@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+API_VERSION = "2"
+
+Vagrant.configure(API_VERSION) do |config|
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
+    vb.customize ["modifyvm", :id, "--nictype2", "Am79C973"]
+  end 
+
+  config.vm.box = 'https://cloud-images.ubuntu.com/vagrant/utopic/current/utopic-server-cloudimg-amd64-vagrant-disk1.box'
+
+  config.vm.define "dilbert" do |dilbert|
+    dilbert.vm.provider "virtualbox" do |dilbertvb|
+        dilbertvb.memory=3048
+        dilbertvb.cpus=5
+    end
+
+    dilbert.vm.host_name = "dilbert"
+    dilbert.vm.network "private_network", ip: "10.12.0.2", netmask: "255.255.0.0"
+    dilbert.ssh.forward_agent = true
+#    dilbert.vm.provision "file", source: '~/.ssh/id_rsa', destination: '/home/vagrant/.ssh/id_rsa'
+    dilbert.vm.provision "shell", inline: 'sudo apt-get update'
+    dilbert.vm.provision "shell", inline: 'sudo apt-get upgrade -y'
+
+    dilbert.vm.provision "ansible" do |ansible|
+        ansible.playbook = "../dilbert.yml"
+        ansible.verbose =  'vvvv'
+        ansible.raw_ssh_args = ["-o UserKnownHostsFile=/dev/null"]
+    end
+
+    dilbert.vm.synced_folder "../../..", "/home/vagrant/Projects", nfs: true, nfs_udp: false
+    home = ENV["HOME"]
+    dilbert.vm.synced_folder home + "/notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
+ end
+end

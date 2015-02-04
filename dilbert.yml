@@ -1,5 +1,5 @@
 ---
-- hosts: devmaster
+- hosts: dilbert
   vars:
     user: vagrant
     rvm1_rubies:
@@ -27,6 +27,7 @@
     - db.gvm
     - { role: rvm_io.rvm1-ruby, sudo: true }
     - db.cucumber
+    - db.leiningen 
   handlers:
     - name: restart ntpd
       shell: sudo ntpd
