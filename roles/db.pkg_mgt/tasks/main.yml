@@ -5,9 +5,6 @@
 - name: Install pip
   apt: pkg=python-pip
   sudo: True
-- name: Add ansible repo
-  apt_repository: repo='ppa:rquillo/ansible'
-  sudo: True
 - name: Install ansible
-  apt: pkg=ansible
+  pip: name=ansible
   sudo: True

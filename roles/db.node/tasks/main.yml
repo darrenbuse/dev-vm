@@ -1,7 +1,7 @@
 
 ---
 - name: Add node PPA
-  shell: add-apt-repository ppa:chris-lea/node.js -y
+  apt_repository: repo='ppa:chris-lea/node.js'
   sudo: True
 - name: Update packages
   shell: apt-get update
