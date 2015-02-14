@@ -11,18 +11,19 @@
       sudo: True
       notify:
       - restart ntpd
-#    - name: Set timezone to London
-#      shell: timedatectl set-timezone Europe/London
-#      sudo: True
+    - name: Set timezone to London
+      shell: timedatectl set-timezone Europe/London
+      sudo: True
+      when: ansible_env.CI != 'true'
   roles:
     - db.basic_utils
-#   - db.known_hosts
+    - {role: db.known_hosts when: ansible_env.CI != 'true'}
     - db.pkg_mgt
     - db.shell
     - db.node
     - db.adv_utils
     - dotfiles
-#   - docker
+    - {role: docker when: ansible_env.CI != 'true'}
     - db.java
     - { role: rvm_io.rvm1-ruby, sudo: true }
     - db.cucumber
