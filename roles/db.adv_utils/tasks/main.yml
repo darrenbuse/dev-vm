@@ -30,7 +30,7 @@
   apt: pkg=jq state=latest
   sudo: True
 - name: todocli
-  shell: /home/vagrant/.linuxbrew/bin/brew install todo-txt
+  shell: "/home/{{ user }}/.linuxbrew/bin/brew install todo-txt"
   sudo: True
-  sudo_user: vagrant
+  sudo_user: "{{ user }}"
   
