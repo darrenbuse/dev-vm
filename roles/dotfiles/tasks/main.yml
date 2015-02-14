@@ -1,11 +1,11 @@
 ---
 - name: Checkout dotfiles from git - is ssh agent running?
-  git: repo=https://github.com/darrenbuse/dotfiles.git recursive=yes dest="{{ ansible_env.HOME  }}/dotfiles/" accept_hostkey=yes update=yes
+  git: repo=https://github.com/darrenbuse/dotfiles.git recursive=yes dest="{{ user_home  }}/dotfiles/" accept_hostkey=yes update=yes
   sudo: True
   sudo_user: "{{ user }}"
   
 - name: Link files
-  shell: "zsh -c \"source {{ ansible_env.HOME }}/dotfiles/link.sh\""
+  shell: "zsh -c \"source {{ user_home }}/dotfiles/link.sh\""
   sudo_user: "{{ user }}"
   sudo: True
 
