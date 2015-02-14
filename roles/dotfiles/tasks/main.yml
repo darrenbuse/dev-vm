@@ -9,8 +9,8 @@
   sudo_user: "{{ user }}"
   sudo: True
 
-- name: install you compleate me on Ubuntu
-  apt: name=vim-youcompleteme
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  sudo: True
+#- name: install you compleate me on Ubuntu
+#  apt: name=vim-youcompleteme
+#  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+#  sudo: True
 

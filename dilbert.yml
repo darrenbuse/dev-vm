@@ -15,13 +15,13 @@
       shell: timedatectl set-timezone Europe/London
       sudo: True
   roles:
-    - db.basic_utils
-#   - db.known_hosts
-    - db.pkg_mgt
-    - db.shell
-    - db.node
-    - db.adv_utils
-    - dotfiles
+      #    - db.basic_utils
+      ##   - db.known_hosts
+      #    - db.pkg_mgt
+      #    - db.shell
+      #    - db.node
+      #    - db.adv_utils
+      #    - dotfiles
     - docker
     - db.java
 #    - db.gvm
