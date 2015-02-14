@@ -8,9 +8,9 @@
 - name: Install tig
   apt: pkg=tig
   sudo: True
-- name: Install glances
-  apt: pkg=glances state=latest
-  sudo: True
+#- name: Install glances
+#  apt: pkg=glances state=latest
+#  sudo: True
 - name: Install git flow
   apt: pkg=git-flow state=latest
   sudo: True
