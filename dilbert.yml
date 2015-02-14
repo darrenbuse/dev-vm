@@ -22,7 +22,7 @@
       #    - db.node
       #    - db.adv_utils
       #    - dotfiles
-    - docker
+      #    - docker
     - db.java
 #    - db.gvm
     - { role: rvm_io.rvm1-ruby, sudo: true }
