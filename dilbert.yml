@@ -17,13 +17,13 @@
       when: ansible_env.CI != 'true'
   roles:
     - db.basic_utils
-    - {role: db.known_hosts when: ansible_env.CI != 'true'}
+    - {role: db.known_hosts, when: ansible_env.CI != 'true'}
     - db.pkg_mgt
     - db.shell
     - db.node
     - db.adv_utils
     - dotfiles
-    - {role: docker when: ansible_env.CI != 'true'}
+    - {role: docker, when: ansible_env.CI != 'true'}
     - db.java
     - { role: rvm_io.rvm1-ruby, sudo: true }
     - db.cucumber
