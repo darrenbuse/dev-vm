@@ -6,7 +6,7 @@
 - homebrew_cask: name=flux
 - homebrew_cask: name=gitx
 - homebrew_cask: name=google-drive
-- homebrew_cask: name=lastpass-universal
+#- homebrew_cask: name=lastpass-universal
 - homebrew_cask: name=spotify
 - homebrew_cask: name=sonos
 - homebrew_cask: name=virtualbox

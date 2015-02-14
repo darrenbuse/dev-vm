@@ -21,7 +21,7 @@ script:
   - "ansible-playbook -i inventory dilbert.yml --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i inventory dilbert.yml --connection=local --sudo"
+  - "ansible-playbook -i inventory dilbert.yml --connection=local --sudo -vvvv"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
