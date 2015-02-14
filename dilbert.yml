@@ -11,20 +11,19 @@
       sudo: True
       notify:
       - restart ntpd
-    - name: Set timezone to London
-      shell: timedatectl set-timezone Europe/London
-      sudo: True
+#    - name: Set timezone to London
+#      shell: timedatectl set-timezone Europe/London
+#      sudo: True
   roles:
-      #    - db.basic_utils
-      ##   - db.known_hosts
-      #    - db.pkg_mgt
-      #    - db.shell
-      #    - db.node
-      #    - db.adv_utils
-      #    - dotfiles
-      #    - docker
+    - db.basic_utils
+#   - db.known_hosts
+    - db.pkg_mgt
+    - db.shell
+    - db.node
+    - db.adv_utils
+    - dotfiles
+#   - docker
     - db.java
-#    - db.gvm
     - { role: rvm_io.rvm1-ruby, sudo: true }
     - db.cucumber
     - db.leiningen 
