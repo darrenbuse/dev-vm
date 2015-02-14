@@ -27,8 +27,12 @@ Vagrant.configure(API_VERSION) do |config|
     dilbert.vm.provision "shell", inline: 'sudo apt-get upgrade -y'
 
     dilbert.vm.provision "ansible" do |ansible|
+        ansible.extra_vars = {
+              user: "vagrant",
+              user_home: "/home/vagrant"
+              }
         ansible.playbook = "../dilbert.yml"
-        ansible.verbose =  'vvvv'
+        ansible.verbose =  'v'
         ansible.raw_ssh_args = ["-o UserKnownHostsFile=/dev/null"]
     end
 

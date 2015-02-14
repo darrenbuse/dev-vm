@@ -1,4 +1,3 @@
-do.da2.io ansible_connection=ssh        ansible_ssh_user=root
 localhost              ansible_connection=local
-dilbert              ansible_connection=local
+dilbert              ansible_connection=local user=vagrant user_home="/home/vagrant" 
 

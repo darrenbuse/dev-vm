@@ -1,0 +1,3 @@
+localhost              ansible_connection=local
+dilbert              ansible_connection=local user=travis user_home="/home/travis" 
+
