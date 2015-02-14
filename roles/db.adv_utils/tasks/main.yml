@@ -29,3 +29,8 @@
 - name: Install jq - json sed had a baby
   apt: pkg=jq state=latest
   sudo: True
+- name: todocli
+  shell: /home/vagrant/.linuxbrew/bin/brew install todo-txt
+  sudo: True
+  sudo_user: vagrant
+  

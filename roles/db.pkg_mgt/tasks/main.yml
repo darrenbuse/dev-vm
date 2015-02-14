@@ -8,3 +8,5 @@
 - name: Install ansible
   pip: name=ansible
   sudo: True
+- name: Homebrew for linux
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)" creates=/home/vagrant/.linuxbrew/Cellar

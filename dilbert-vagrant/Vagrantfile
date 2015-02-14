@@ -35,5 +35,6 @@ Vagrant.configure(API_VERSION) do |config|
     dilbert.vm.synced_folder "../../..", "/home/vagrant/Projects", nfs: true, nfs_udp: false
     home = ENV["HOME"]
     dilbert.vm.synced_folder home + "/notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
+    dilbert.vm.synced_folder home + "/Dropbox", "/home/vagrant/Dropbox", nfs: true, nfs_udp: false
  end
 end
