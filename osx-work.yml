@@ -4,6 +4,11 @@
   sudo: no
   vars:
     user: dbuse
+    user_home: "/Users/dbuse/"
+  tasks:
+      - name: set hostname
+        shell: 'scutil --set HostName "heneretta" && scutil --set LocalHostName "heneretta"'
+        sudo: True
   roles:
     - db.osx-base
     - db.known_hosts                                                                                                                              
