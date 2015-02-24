@@ -8,7 +8,13 @@
 - name: Install ansible
   pip: name=ansible
   sudo: True
-- name: Homebrew for linux
-  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)" creates=/home/vagrant/.linuxbrew/Cellar
+- name: Homebrew for osx
+  command: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)" creates="{{ user_home }}/.linuxbrew/Cellar"
   sudo: True
   sudo_user: "{{ user }}"
+  when: ansible_os_family == 'Darwin'
+- name: Homebrew for linux
+  command: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" creates="{{ user_home }}/.brew/Cellar"
+  sudo: True
+  sudo_user: "{{ user }}"
+  when: ansible_os_family == 'Debian'
