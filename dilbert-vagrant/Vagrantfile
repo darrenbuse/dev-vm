@@ -22,7 +22,8 @@ Vagrant.configure(API_VERSION) do |config|
     dilbert.vm.host_name = "dilbert"
     dilbert.vm.network "private_network", ip: "10.12.0.2", netmask: "255.255.0.0"
     dilbert.ssh.forward_agent = true
-#    dilbert.vm.provision "file", source: '~/.ssh/id_rsa', destination: '/home/vagrant/.ssh/id_rsa'
+    dilbert.vm.provision "file", source: '~/.location', destination: '~/.location'
+    dilbert.vm.provision "file", source: '~/.env', destination: '~/.env'
     dilbert.vm.provision "shell", inline: 'sudo apt-get update'
     dilbert.vm.provision "shell", inline: 'sudo apt-get upgrade -y'
 

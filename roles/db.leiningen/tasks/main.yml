@@ -4,7 +4,7 @@
   apt: pkg=wget state=installed
 
 - name: get lein script
-  command: wget --no-check-certificate -O /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/preview/bin/lein
+  command: wget --no-check-certificate -O /usr/local/bin/lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
   sudo: True
 
 - name: make executable

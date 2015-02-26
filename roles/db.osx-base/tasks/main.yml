@@ -16,6 +16,8 @@
 - homebrew_cask: name=intellij-idea
 - homebrew_cask: name=disk-inventory-x
 - homebrew_cask: name=evernote
+- homebrew_cask: name=skype
+- homebrew_cask: name=lighttable
 - homebrew: name=tmux
 - homebrew: name=zsh
 - homebrew: name=tig
