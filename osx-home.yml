@@ -3,6 +3,7 @@
   connection: local
   vars:
     user: darrenbuse
+    user_home: "/Users/darrenbuse/"
   sudo: no
   tasks:
       - name: set hostname

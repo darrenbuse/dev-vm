@@ -21,6 +21,7 @@
 - homebrew: name=tmux
 - homebrew: name=zsh
 - homebrew: name=tig
+- homebrew: name=node
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.
