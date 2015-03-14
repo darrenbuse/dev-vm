@@ -42,6 +42,9 @@
   shell: "chmod +x install_sack.sh && ./install_sack.sh"
   args:
       chdir: "{{user_home}}/utils/sack"
+- name: Install tmuxinator
+  gem: name=tmuxinator
+  sudo: True
 - name: todocli
   shell: "/home/{{ user }}/.linuxbrew/bin/brew install todo-txt"
   sudo: True
