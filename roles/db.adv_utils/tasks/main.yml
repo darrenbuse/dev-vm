@@ -29,6 +29,19 @@
 - name: Install jq - json sed had a baby
   apt: pkg=jq state=latest
   sudo: True
+- name: Install ag - searchin
+  homebrew: name=the_silver_searcher 
+  when: ansible_os_family == 'Darwin'
+- name: Install ag - searchin
+  apt: pkg=silversearcher-ag 
+  when: ansible_os_family == 'Debian'
+  sudo: True
+- name: ag wrapper - git
+  git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
+- name: ag wrapper - install
+  shell: "chmod +x install_sack.sh && ./install_sack.sh"
+  args:
+      chdir: "{{user_home}}/utils/sack"
 - name: todocli
   shell: "/home/{{ user }}/.linuxbrew/bin/brew install todo-txt"
   sudo: True
