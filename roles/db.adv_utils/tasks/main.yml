@@ -34,7 +34,7 @@
   when: ansible_os_family == 'Darwin'
 - name: Install ag - searchin
   apt: pkg=silversearcher-ag 
-  when: ansible_os_family == 'Debian' && ansible_env.CI is not defined
+  when: ansible_os_family == 'Debian' and ansible_env.CI is not defined
   sudo: True
 - name: ag wrapper - git
   git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
