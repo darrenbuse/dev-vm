@@ -1,13 +1,18 @@
 ---
 - name: Get ansible-role
-  git: repo=git@github.com:darrenbuse/ansible-role.git dest=/home/vagrant/Projects/ansible-role
+  git: repo=git@github.com:darrenbuse/ansible-role.git dest=/home/vagrant/Projects/home/ansible-role
 - name: Install to path
-  shell: /home/vagrant/Projects/ansible-role/install.sh
+  shell: /home/vagrant/Projects/home/ansible-role/install.sh
 - name: Bitbucket integration to git
-  git: repo=ssh://git@bitbucket.org/darrenbuse/git-bb.git version=develop dest=/home/vagrant/Projects/git-bitbucket
+  git: repo=git@bitbucket.org:darrenbuse/git-bb.git version=develop dest=/home/vagrant/Projects/home/git-bitbucket
 - name: Install git-bucket
   shell: npm link chdir=/home/vagrant/Projects/git-bitbucket/
 - name: Vagrant open
-  git: repo=ssh://git@bitbucket.org/darrenbuse/vagrant-open.git version=master dest=/home/vagrant/Projects/vagrant-open
+  git: repo=git@github.com:darrenbuse/vagrant-host-apps.git version=master dest=/home/vagrant/Projects/home/vagrant-host-apps
 - name: Install vagrant open
-  shell: npm link chdir=/home/vagrant/Projects/vagrant-open/
+  shell: npm link chdir=/home/vagrant/Projects/home/vagrant-host-apps
+- name: TodoCli Extras
+  git: repo=git@github.com:darrenbuse/todo.git version=master dest=/home/vagrant/Projects/home/todo
+- name: Install TodoCli Extras
+  shell: npm link chdir=/home/vagrant/Projects/home/todo
+  
