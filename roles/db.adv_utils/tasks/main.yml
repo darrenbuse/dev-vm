@@ -45,6 +45,7 @@
 - name: Install tmuxinator
   gem: name=tmuxinator
   sudo: True
+  when: ansible_env.CI is not defined
 - name: todocli
   shell: "/home/{{ user }}/.linuxbrew/bin/brew install todo-txt"
   sudo: True
