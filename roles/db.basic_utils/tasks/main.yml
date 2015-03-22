@@ -15,3 +15,6 @@
 - name: Install wget
   apt: pkg=wget
   sudo: True
+- name: Install ctags
+  apt: pkg=exuberant-ctags
+  sudo: True

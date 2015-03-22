@@ -22,6 +22,8 @@
 - homebrew: name=zsh
 - homebrew: name=tig
 - homebrew: name=node
+- homebrew: name=vim
+- homebrew: name=ctags-exuberant
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.
