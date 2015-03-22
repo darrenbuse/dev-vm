@@ -9,6 +9,8 @@ addons:
     ssh_known_hosts: github.com
 
 before_install:
+  - gem update --system
+  - gem --version
   - sudo apt-get update -qq
   - sudo apt-get install -y curl
 
