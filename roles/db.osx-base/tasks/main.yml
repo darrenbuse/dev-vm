@@ -19,6 +19,7 @@
 - homebrew_cask: name=skype
 - homebrew_cask: name=lighttable
 - homebrew: name=tmux
+- homebrew: name=wget
 - homebrew: name=zsh
 - homebrew: name=tig
 - homebrew: name=node
