@@ -28,3 +28,5 @@
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.
   shell: "zsh -c \"source {{ ansible_env.HOME  }}/dotfiles/osx/bootstrap.sh\""
+- name: Install ssh-copy-id
+  copy: src="ssh-copy-id.sh" dest="{{ user_home }}/bin/ssh-copy-id" mode="0744" 
