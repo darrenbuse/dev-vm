@@ -2,29 +2,30 @@
 - homebrew_tap: tap=caskroom/cask
 - homebrew: name=brew-cask state=latest
 - homebrew_tap: tap=caskroom/versions
-- homebrew_cask: name=google-chrome-beta
-- homebrew_cask: name=flux
-- homebrew_cask: name=gitx
-- homebrew_cask: name=google-drive
-#- homebrew_cask: name=lastpass-universal
-- homebrew_cask: name=spotify
-- homebrew_cask: name=sonos
-- homebrew_cask: name=virtualbox
-- homebrew_cask: name=vagrant
-- homebrew_cask: name=java
-- homebrew_cask: name=atom
-- homebrew_cask: name=intellij-idea
-- homebrew_cask: name=disk-inventory-x
-- homebrew_cask: name=evernote
-- homebrew_cask: name=skype
-- homebrew_cask: name=lighttable
-- homebrew: name=tmux
-- homebrew: name=wget
-- homebrew: name=zsh
-- homebrew: name=tig
-- homebrew: name=node
-- homebrew: name=vim
-- homebrew: name=ctags-exuberant
+- homebrew_cask: name=google-chrome-beta state=latest
+- homebrew_cask: name=flux state=latest
+- homebrew_cask: name=gitx state=latest
+- homebrew_cask: name=google-drive state=latest
+- homebrew_cask: name=lastpass-universal state=latest
+- homebrew_cask: name=spotify state=latest
+- homebrew_cask: name=sonos state=latest
+- homebrew_cask: name=virtualbox state=latest
+- homebrew_cask: name=vagrant state=latest
+- homebrew_cask: name=java state=latest
+- homebrew_cask: name=atom state=latest
+- homebrew_cask: name=intellij-idea state=latest
+- homebrew_cask: name=disk-inventory-x state=latest
+- homebrew_cask: name=evernote state=latest
+- homebrew_cask: name=skype state=latest
+- homebrew_cask: name=lighttable state=latest
+- homebrew_cask: name=sophos-anti-virus-home-edition state=latest
+- homebrew: name=tmux state=latest
+- homebrew: name=wget state=latest
+- homebrew: name=zsh state=latest
+- homebrew: name=tig state=latest
+- homebrew: name=node state=latest
+- homebrew: name=vim state=latest
+- homebrew: name=ctags-exuberant state=latest
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.

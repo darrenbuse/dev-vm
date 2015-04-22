@@ -51,3 +51,7 @@
   shell: "/home/{{ user }}/.linuxbrew/bin/brew install hub"
   sudo: True
   sudo_user: "{{ user }}"
+- name: install fasd
+  shell: "/home/{{ user }}/.linuxbrew/bin/brew install fasd"
+  sudo: True
+  sudo_user: "{{ user }}"

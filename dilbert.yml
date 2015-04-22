@@ -23,8 +23,7 @@
     - dotfiles
     - {role: docker, when: ansible_env.CI is not defined}
     - db.java
-    - { role: rvm_io.rvm1-ruby, sudo: true }
-    - db.cucumber
+    - db.maven
     - db.leiningen 
   handlers:
     - name: restart ntpd

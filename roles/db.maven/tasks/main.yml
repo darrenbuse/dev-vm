@@ -1,0 +1,4 @@
+
+---
+- name: Lets get mvn
+  shell: "/home/{{ user  }}/.linuxbrew/bin/brew install maven"
