@@ -32,7 +32,7 @@ Vagrant.configure(API_VERSION) do |config|
               user: "vagrant",
               user_home: "/home/vagrant"
               }
-        ansible.playbook = "../dilbert.yml"
+        ansible.playbook = "../vm.yml"
         ansible.verbose =  'v'
         ansible.raw_ssh_args = ["-o UserKnownHostsFile=/dev/null"]
     end

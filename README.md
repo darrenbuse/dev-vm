@@ -22,3 +22,6 @@ Currently a real work in progress, its comprised of two parts, the OSX setup and
   \/  / \ / |   |
    \_/___/   \_/ 
 ```
+
+To fix python problems:
+```sudo apt-get purge python-requests && sudo apt-get install python-requests python-pip```
