@@ -24,6 +24,9 @@ Vagrant.configure(API_VERSION) do |config|
     dilbert.ssh.forward_agent = true
     dilbert.vm.provision "file", source: '~/.location', destination: '~/.location'
     dilbert.vm.provision "file", source: '~/.env', destination: '~/.env'
+    dilbert.vm.provision "file", source: './enviroment', destination: '~/enviroment'
+    dilbert.vm.provision "shell", inline: 'sudo mv /home/vagrant/enviroment /etc/environment'
+    dilbert.vm.provision "shell", inline: 'sudo chown root:root /etc/environment'
     dilbert.vm.provision "shell", inline: 'sudo apt-get update'
     dilbert.vm.provision "shell", inline: 'sudo apt-get upgrade -y'
 

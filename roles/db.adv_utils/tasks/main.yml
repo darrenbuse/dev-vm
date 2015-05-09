@@ -1,38 +1,26 @@
 ---
-- name: Install Meld
-  apt: pkg=meld state=absent
-  sudo: True
 - name: Install Httpie
-  pip: name=httpie
+  homebrew: name=httpie state=present
   sudo: True
+  sudo_user: "{{ user }}"
 - name: Install tig
-  apt: pkg=tig
+  homebrew: name=tig state=present
   sudo: True
-#- name: Install glances
-#  apt: pkg=glances state=latest
-#  sudo: True
+  sudo_user: "{{ user }}"
 - name: Install git flow
-  apt: pkg=git-flow state=latest
+  homebrew: name=git-flow state=present
   sudo: True
+  sudo_user: "{{ user }}"
 - name: Jira CMD
   npm: name=jira-cmd global=true
-  sudo: True
-- name: Install ngrep - network grep
-  apt: pkg=ngrep state=latest
   sudo: True
 - name: Install AWS Tools
   pip: name=awscli state=latest
   sudo: True
 - name: Install jq - json sed had a baby
-  apt: pkg=jq state=latest
+  homebrew: name=jq state=present
   sudo: True
-- name: Install ag - searchin
-  homebrew: name=the_silver_searcher 
-  when: ansible_os_family == 'Darwin'
-- name: Install ag - searchin
-  apt: pkg=silversearcher-ag 
-  when: ansible_os_family == 'Debian' and ansible_env.CI is not defined
-  sudo: True
+  sudo_user: "{{ user }}"
 - name: ag wrapper - git
   git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
 - name: ag wrapper - install
@@ -44,14 +32,18 @@
   sudo: True
   when: ansible_env.CI is not defined
 - name: todocli
-  shell: "/home/{{ user }}/.linuxbrew/bin/brew install todo-txt"
+  homebrew: name=todo-txt
   sudo: True
   sudo_user: "{{ user }}"
 - name: install hub
-  shell: "/home/{{ user }}/.linuxbrew/bin/brew install hub"
+  homebrew: name=hub
   sudo: True
   sudo_user: "{{ user }}"
 - name: install fasd
-  shell: "/home/{{ user }}/.linuxbrew/bin/brew install fasd"
+  homebrew: name=fasd
+  sudo: True
+  sudo_user: "{{ user }}"
+- name: install ccat
+  homebrew: name=ccat
   sudo: True
   sudo_user: "{{ user }}"
