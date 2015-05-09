@@ -44,6 +44,10 @@
   sudo: True
   sudo_user: "{{ user }}"
 - name: install ccat
+  homebrew_tap: tap=jingweno/ccat state=present
+  sudo: True
+  sudo_user: "{{ user }}"
+- name: install ccat
   homebrew: name=ccat
   sudo: True
   sudo_user: "{{ user }}"
