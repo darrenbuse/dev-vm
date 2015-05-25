@@ -1,3 +1,5 @@
 ---
 - name: Create notes directory via google drive
   shell: "ln -sf {{ ansible_env.HOME }}/Google\\ Drive/notes {{ ansible_env.HOME }}/notes"
+- name: Download iterm2 theme
+  get_url: url="https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Thayer%20Bright.itermcolors" dest="{{ ansible_env.HOME }}/dotfiles/thayer.itermcolors"
