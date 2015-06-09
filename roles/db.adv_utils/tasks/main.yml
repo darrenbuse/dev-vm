@@ -1,16 +1,10 @@
 ---
 - name: Install Httpie
   homebrew: name=httpie state=present
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: Install tig
   homebrew: name=tig state=present
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: Install git flow
   homebrew: name=git-flow state=present
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: Jira CMD
   npm: name=jira-cmd global=true
   sudo: True
@@ -19,8 +13,6 @@
   sudo: True
 - name: Install jq - json sed had a baby
   homebrew: name=jq state=present
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: ag wrapper - git
   git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
 - name: ag wrapper - install
@@ -33,21 +25,11 @@
   when: ansible_env.CI is not defined
 - name: todocli
   homebrew: name=todo-txt
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: install hub
   homebrew: name=hub
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: install fasd
   homebrew: name=fasd
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: install ccat
   homebrew_tap: tap=jingweno/ccat state=present
-  sudo: True
-  sudo_user: "{{ user }}"
 - name: install ccat
   homebrew: name=ccat
-  sudo: True
-  sudo_user: "{{ user }}"

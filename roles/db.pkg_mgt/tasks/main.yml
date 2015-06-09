@@ -22,7 +22,7 @@
   sudo: True
   sudo_user: "{{ user }}"
   when: ansible_os_family == 'Debian'
-- name: linuxbrew
+- name: linuxbrew profile
   sudo: True
   template: src=brew.sh.j2 dest="/etc/profile.d/brew.sh" mode=555
 - name: reload vars

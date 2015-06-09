@@ -1,4 +1,5 @@
-# -*- mode: ruby -*-
+ #-*- mode: ruby -*-
+
 # vi: set ft=ruby :
 API_VERSION = "2"
 
@@ -28,7 +29,15 @@ Vagrant.configure(API_VERSION) do |config|
     dilbert.vm.provision "file", source: './enviroment', destination: '~/enviroment'
     dilbert.vm.provision "shell", inline: 'sudo mv /home/vagrant/enviroment /etc/environment'
     dilbert.vm.provision "shell", inline: 'sudo chown root:root /etc/environment'
-    dilbert.vm.provision "shell", inline: 'sudo apt-get update'
+    dilbert.vm.provision "shell", inline: 'cat /etc/environment > /home/vagrant/bashrc.tmp'
+    dilbert.vm.provision "shell", inline: 'cat /home/vagrant/.bashrc >> /home/vagrant/bashrc.tmp'
+    dilbert.vm.provision "shell", inline: 'mv -f /home/vagrant/bashrc.tmp /home/vagrant/.bashrc'
+    dilbert.vm.provision "shell", inline: 'chown vagrant:vagrant /home/vagrant/.bashrc'
+    dilbert.vm.provision "shell", inline: 'chmod +x /home/vagrant/.bashrc'
+    dilbert.vm.provision "shell", inline: 'echo $PATH', privileged:false
+    dilbert.vm.provision "shell", inline: '. /home/vagrant/.profile', privileged:false
+   dilbert.vm.provision "shell", inline: 'echo $PATH' , privileged:false
+   dilbert.vm.provision "shell", inline: 'sudo apt-get update'
     dilbert.vm.provision "shell", inline: 'sudo apt-get upgrade -y'
     dilbert.vm.provision "shell", inline: 'sudo apt-get purge python-requests -y && sudo apt-get install python-requests python-pip -y'
 
@@ -42,7 +51,7 @@ Vagrant.configure(API_VERSION) do |config|
         ansible.raw_ssh_args = ["-o UserKnownHostsFile=/dev/null"]
     end
 
-    dilbert.vm.synced_folder "/Volumes/Share/Projects/", "/home/vagrant/Projects", nfs: true, nfs_udp: false, nfs_options: "-mapall=1000:1000"
+    dilbert.vm.synced_folder "/Users/darrenbuse/Projects/", "/home/vagrant/Projects", nfs: true, nfs_udp: false, nfs_options: "-mapall=1000:1000"
     home = ENV["HOME"]
     dilbert.vm.synced_folder home + "/notes", "/home/vagrant/notes", nfs: true, nfs_udp: false
     dilbert.vm.synced_folder home + "/Dropbox", "/home/vagrant/Dropbox", nfs: true, nfs_udp: false

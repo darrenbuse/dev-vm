@@ -20,7 +20,7 @@ install:
 
 script:
   # Check the role/playbook's syntax.
-    - "ansible-playbook -i test-inventory dilbert.yml --syntax-check"
+    - "ansible-playbook -i test-inventory vm.yml --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-    - "ansible-playbook -i test-inventory dilbert.yml --connection=local --sudo -vv"
+    - "ansible-playbook -i test-inventory vm.yml --connection=local --sudo -vv"
