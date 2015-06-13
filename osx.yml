@@ -11,7 +11,8 @@
         sudo: True
   roles:
     - db.osx-base
-      #    - db.known_hosts
     - dotfiles
     - db.osx-misc
+      #    - db.basic_utils
+    - db.adv_utils
 

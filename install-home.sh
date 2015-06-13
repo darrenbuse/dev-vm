@@ -1,2 +1,2 @@
 #/bin/sh
-ansible-playbook -i inventory osx-home.yml --ask-sudo-pass
+ansible-playbook -i inventory osx.yml --ask-sudo-pass
