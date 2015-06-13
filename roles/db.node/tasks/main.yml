@@ -1,7 +1,7 @@
 
 ---
 - name: Add node PPA
-  apt_repository: repo='ppa:chris-lea/node.js'
+  shell: curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
   sudo: True
 - name: Update packages
   shell: apt-get update
