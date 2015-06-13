@@ -13,6 +13,8 @@
   sudo: True
 - name: Install jq - json sed had a baby
   homebrew: name=jq state=present
+- name: Install ag
+  homebrew: name=the_silver_searcher state=present
 - name: ag wrapper - git
   git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
 - name: ag wrapper - install

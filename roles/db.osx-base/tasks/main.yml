@@ -1,31 +1,31 @@
 ---
 - homebrew_tap: tap=caskroom/cask
-- homebrew: name=brew-cask state=latest
+- homebrew: name=brew-cask state=installed
 - homebrew_tap: tap=caskroom/versions
-- homebrew_cask: name=google-chrome-beta state=latest
-- homebrew_cask: name=flux state=latest
-- homebrew_cask: name=gitx state=latest
-- homebrew_cask: name=google-drive state=latest
-- homebrew_cask: name=lastpass-universal state=latest
-- homebrew_cask: name=spotify state=latest
-- homebrew_cask: name=sonos state=latest
-- homebrew_cask: name=virtualbox state=latest
-- homebrew_cask: name=vagrant state=latest
-- homebrew_cask: name=java state=latest
-- homebrew_cask: name=atom state=latest
-- homebrew_cask: name=intellij-idea state=latest
-- homebrew_cask: name=disk-inventory-x state=latest
-- homebrew_cask: name=evernote state=latest
-- homebrew_cask: name=skype state=latest
-- homebrew_cask: name=lighttable state=latest
-- homebrew_cask: name=sophos-anti-virus-home-edition state=latest
-- homebrew: name=tmux state=latest
-- homebrew: name=wget state=latest
-- homebrew: name=zsh state=latest
-- homebrew: name=tig state=latest
-- homebrew: name=node state=latest
-- homebrew: name=vim state=latest
-- homebrew: name=ctags-exuberant state=latest
+- homebrew_cask: name=google-chrome-beta state=installed
+- homebrew_cask: name=flux state=installed
+- homebrew_cask: name=gitx state=installed
+- homebrew_cask: name=google-drive state=installed
+- homebrew_cask: name=lastpass state=installed
+- homebrew_cask: name=spotify state=installed
+- homebrew_cask: name=sonos state=installed
+- homebrew_cask: name=virtualbox state=installed
+- homebrew_cask: name=vagrant state=installed
+- homebrew_cask: name=java state=installed
+- homebrew_cask: name=atom state=installed
+- homebrew_cask: name=intellij-idea state=installed
+- homebrew_cask: name=disk-inventory-x state=installed
+- homebrew_cask: name=evernote state=installed
+- homebrew_cask: name=skype state=installed
+- homebrew_cask: name=lighttable state=installed
+- homebrew_cask: name=sophos-anti-virus-home-edition state=installed
+- homebrew: name=tmux state=installed
+- homebrew: name=wget state=installed
+- homebrew: name=zsh state=installed
+- homebrew: name=tig state=installed
+- homebrew: name=node state=installed
+- homebrew: name=vim state=installed
+- homebrew: name=ctags-exuberant state=installed
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup osx dotfile settings.

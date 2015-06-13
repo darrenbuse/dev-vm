@@ -2,8 +2,8 @@
 - name: python-software-properties
   apt: pkg=python-software-properties
   sudo: True
-- name: Install pip
-  apt: pkg=python-pip
+- name: fix pip      
+  shell: sudo apt-get purge -y python-requests && sudo apt-get install -y python-requests python-pip
   sudo: True
 - name: Install ansible
   pip: name=ansible
