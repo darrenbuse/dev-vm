@@ -1,3 +1,2 @@
 ---
-- homebrew_cask: name=skype
 - homebrew_cask: name=slack

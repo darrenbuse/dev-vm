@@ -2,9 +2,15 @@
 - name: python-software-properties
   apt: pkg=python-software-properties
   sudo: True
+  when: ansible_os_family == 'Debian'
 - name: fix pip      
   shell: sudo apt-get purge -y python-requests && sudo apt-get install -y python-requests python-pip
   sudo: True
+  when: ansible_os_family == 'Debian'
+- name: PIP OSX
+  shell: sudo easy_install pip
+  sudo: True
+  when: ansible_os_family == 'Darwin'
 - name: Install ansible
   pip: name=ansible
   sudo: True

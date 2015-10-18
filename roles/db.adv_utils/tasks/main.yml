@@ -3,11 +3,6 @@
   homebrew: name=httpie state=present
 - name: Install tig
   homebrew: name=tig state=present
-- name: Install git flow
-  homebrew: name=git-flow state=present
-- name: Jira CMD
-  npm: name=jira-cmd global=true
-  sudo: True
 - name: Install AWS Tools
   pip: name=awscli state=latest
   sudo: True
@@ -35,5 +30,5 @@
   homebrew_tap: tap=jingweno/ccat state=present
 - name: install ccat
   homebrew: name=ccat
-- name: install urlview
-  homebrew: name=urlview
+#- name: install urlview
+#  homebrew: name=urlview

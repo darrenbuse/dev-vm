@@ -15,9 +15,6 @@
 - homebrew_cask: name=atom state=installed
 - homebrew_cask: name=intellij-idea state=installed
 - homebrew_cask: name=disk-inventory-x state=installed
-- homebrew_cask: name=evernote state=installed
-- homebrew_cask: name=skype state=installed
-- homebrew_cask: name=lighttable state=installed
 - homebrew_cask: name=sophos-anti-virus-home-edition state=installed
 - homebrew: name=tmux state=installed
 - homebrew: name=wget state=installed
@@ -26,9 +23,3 @@
 - homebrew: name=node state=installed
 - homebrew: name=vim state=installed
 - homebrew: name=ctags-exuberant state=installed
-- name: set zsh as default shell
-  shell: "chsh -s /bin/zsh {{ user  }}"
-- name: Setup osx dotfile settings.
-  shell: "zsh -c \"source {{ ansible_env.HOME  }}/dotfiles/osx/bootstrap.sh\""
-- name: Install ssh-copy-id
-  copy: src="ssh-copy-id.sh" dest="{{ user_home }}/bin/ssh-copy-id" mode="0744" 

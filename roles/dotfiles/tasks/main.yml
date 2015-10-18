@@ -1,6 +1,6 @@
 ---
 - name: Checkout dotfiles from git - is ssh agent running?
-  git: repo=https://github.com/darrenbuse/dotfiles.git recursive=yes dest="{{ user_home  }}/dotfiles/" accept_hostkey=yes update=yes
+  git: repo=https://github.com/darrenbuse/dotfiles.git recursive=yes dest="{{ user_home  }}/dotfiles/" accept_hostkey=yes update=no
   sudo: True
   sudo_user: "{{ user }}"
   
@@ -9,6 +9,11 @@
   sudo_user: "{{ user }}"
   sudo: True
 
+- name: Setup osx dotfile settings.
+  shell: "zsh -c \"source {{ ansible_env.HOME  }}/dotfiles/osx/bootstrap.sh\""
+  when: ansible_os_family == 'Darwin'
+#
+#
 #- name: install you compleate me on Ubuntu
 #  apt: name=vim-youcompleteme
 #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

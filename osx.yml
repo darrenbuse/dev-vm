@@ -10,9 +10,9 @@
         shell: 'scutil --set HostName "heneretta" && scutil --set LocalHostName "heneretta"'
         sudo: True
   roles:
-    - db.osx-base
+    - db.osx-apps
     - dotfiles
-    - db.osx-misc
-      #    - db.basic_utils
+    - db.osx-setup
+#    - db.basic_utils - Installed via apt
     - db.adv_utils
 
