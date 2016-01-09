@@ -1,4 +1,0 @@
-
----
-- name: Lets get mvn
-  homebrew: name=maven

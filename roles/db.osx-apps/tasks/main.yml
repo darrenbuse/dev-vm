@@ -1,6 +1,5 @@
 ---
 - homebrew_tap: tap=caskroom/cask
-- homebrew: name=brew-cask state=installed
 - homebrew_tap: tap=caskroom/versions
 - homebrew_cask: name=google-chrome-beta state=installed
 - homebrew_cask: name=flux state=installed
@@ -12,14 +11,6 @@
 - homebrew_cask: name=virtualbox state=installed
 - homebrew_cask: name=vagrant state=installed
 - homebrew_cask: name=java state=installed
-- homebrew_cask: name=atom state=installed
-- homebrew_cask: name=intellij-idea state=installed
 - homebrew_cask: name=disk-inventory-x state=installed
+- homebrew_cask: name=intellij-idea state=installed
 - homebrew_cask: name=sophos-anti-virus-home-edition state=installed
-- homebrew: name=tmux state=installed
-- homebrew: name=wget state=installed
-- homebrew: name=zsh state=installed
-- homebrew: name=tig state=installed
-- homebrew: name=node state=installed
-- homebrew: name=vim state=installed
-- homebrew: name=ctags-exuberant state=installed

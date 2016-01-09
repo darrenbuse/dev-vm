@@ -1,4 +1,8 @@
 ---
+- name: set zsh as default shell
+  shell: "chsh -s /bin/zsh {{ user  }}"
+- name: Setup bin directory
+  file: path="{{user_home}}/bin" state=directory
 - name: Install Httpie
   homebrew: name=httpie state=present
 - name: Install tig
@@ -32,3 +36,6 @@
   homebrew: name=ccat
 - name: ssh-copy-id
   homebrew: ssh-copy-id
+- name: ctags
+  homebrew: ctags-exuberant
+
