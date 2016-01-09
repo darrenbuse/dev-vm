@@ -30,5 +30,5 @@
   homebrew_tap: tap=jingweno/ccat state=present
 - name: install ccat
   homebrew: name=ccat
-#- name: install urlview
-#  homebrew: name=urlview
+- name: ssh-copy-id
+  homebrew: ssh-copy-id
