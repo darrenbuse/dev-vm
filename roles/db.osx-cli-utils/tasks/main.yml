@@ -38,4 +38,6 @@
   homebrew: ssh-copy-id
 - name: ctags
   homebrew: ctags-exuberant
+- name: hub
+  homebrew: hub
 

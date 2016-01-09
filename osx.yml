@@ -14,5 +14,5 @@
     - dotfiles
     - db.osx-setup
 #    - db.basic_utils - Installed via apt
-    - db.adv_utils
+    - db.osx-cli-utils
 
