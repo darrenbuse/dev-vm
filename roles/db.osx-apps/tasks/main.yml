@@ -14,3 +14,4 @@
 - homebrew_cask: name=disk-inventory-x state=installed
 - homebrew_cask: name=intellij-idea state=installed
 - homebrew_cask: name=sophos-anti-virus-home-edition state=installed
+- homebrew_cask: name=dockertoolbox state=installed

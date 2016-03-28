@@ -40,4 +40,7 @@
   homebrew: ctags-exuberant
 - name: hub
   homebrew: hub
-
+- name: diff-so-fancy
+  homebrew: diff-so-fancy
+- name: emacs
+  homebrew: name=emacs install_options=with-cocoa
