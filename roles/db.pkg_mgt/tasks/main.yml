@@ -31,5 +31,6 @@
 - name: linuxbrew profile
   sudo: True
   template: src=brew.sh.j2 dest="/etc/profile.d/brew.sh" mode=555
+  when: ansible_os_family == 'Debian'
 - name: reload vars
   setup:

@@ -4,15 +4,17 @@
   vars:
     user: darrenbuse
     user_home: "/Users/darrenbuse/"
+    work_apps: false
   sudo: no
   tasks:
       - name: set hostname
-        shell: 'scutil --set HostName "heneretta" && scutil --set LocalHostName "heneretta"'
+        shell: 'scutil --set HostName "bob" && scutil --set LocalHostName "bob"'
+        sudo: True
+      - name: set hostname in hosts file
+        lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 localhost bob' 
         sudo: True
   roles:
     - db.osx-apps
     - dotfiles
-    - db.osx-setup
-#    - db.basic_utils - Installed via apt
     - db.osx-cli-utils
 

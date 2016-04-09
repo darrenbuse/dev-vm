@@ -1,4 +1,6 @@
 ---
+- name: Update brew
+  homebrew: update_homebrew=yes
 - name: set zsh as default shell
   shell: "chsh -s /bin/zsh {{ user  }}"
 - name: Setup bin directory
@@ -34,13 +36,11 @@
   homebrew_tap: tap=jingweno/ccat state=present
 - name: install ccat
   homebrew: name=ccat
-- name: ssh-copy-id
-  homebrew: ssh-copy-id
+- name: "ssh-copy-id"
+  homebrew: name="ssh-copy-id"
 - name: ctags
-  homebrew: ctags-exuberant
-- name: hub
-  homebrew: hub
-- name: diff-so-fancy
-  homebrew: diff-so-fancy
+  homebrew: name="ctags-exuberant"
+- name: "diff-so-fancy"
+  homebrew: name="diff-so-fancy"
 - name: emacs
   homebrew: name=emacs install_options=with-cocoa

@@ -4,7 +4,7 @@
   sudo: True
   sudo_user: "{{ user }}"
   
-- name: Link files - takes a while to clone YCM
+- name: Link files
   shell: "/bin/sh -c \"{{ user_home }}/dotfiles/link.sh\""
   sudo_user: "{{ user }}"
   sudo: True

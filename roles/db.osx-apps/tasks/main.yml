@@ -1,6 +1,4 @@
 ---
-- homebrew_tap: tap=caskroom/cask
-- homebrew_tap: tap=caskroom/versions
 - homebrew_cask: name=google-chrome-beta state=installed
 - homebrew_cask: name=flux state=installed
 - homebrew_cask: name=gitx state=installed
@@ -13,5 +11,8 @@
 - homebrew_cask: name=java state=installed
 - homebrew_cask: name=disk-inventory-x state=installed
 - homebrew_cask: name=intellij-idea state=installed
+  when: work_apps == true
 - homebrew_cask: name=sophos-anti-virus-home-edition state=installed
+  when: work_apps == true
 - homebrew_cask: name=dockertoolbox state=installed
+
