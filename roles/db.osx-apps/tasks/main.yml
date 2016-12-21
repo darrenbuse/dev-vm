@@ -12,7 +12,7 @@
   homebrew: name=tig state=present
 - name: Install AWS Tools
   pip: name=awscli state=latest
-  sudo: True
+  become: True
 - name: Install jq - json sed had a baby
   homebrew: name=jq state=present
 - name: install hub

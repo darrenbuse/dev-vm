@@ -6,14 +6,14 @@
     user_home: "/Users/darrenbuse/"
     hostname: "bob"
     work_apps: false
-  sudo: no
+  become: no
   tasks:
       - name: set hostname
         shell: 'scutil --set HostName "{{ hostname }}" && scutil --set LocalHostName "{{ hostname }}"'
-        sudo: True
+        become: True
       - name: set hostname in hosts file
         lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 localhost {hostname}' 
-        sudo: True
+        become: True
   roles:
     - db.osx-apps
     - db.dotfiles
