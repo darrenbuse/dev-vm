@@ -1,3 +1,2 @@
 localhost              ansible_connection=local
-dilbert              ansible_connection=local user=vagrant user_home="/home/vagrant" 
 

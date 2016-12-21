@@ -1,4 +1,52 @@
 ---
+- name: Update brew
+  homebrew: update_homebrew=yes
+- name: set zsh as default shell
+  shell: "chsh -s /bin/zsh {{ user  }}"
+- name: Setup bin directory
+  file: path="{{user_home}}/bin" state=directory
+
+- name: Install Httpie
+  homebrew: name=httpie state=present
+- name: Install tig
+  homebrew: name=tig state=present
+- name: Install AWS Tools
+  pip: name=awscli state=latest
+  sudo: True
+- name: Install jq - json sed had a baby
+  homebrew: name=jq state=present
+- name: install hub
+  homebrew: name=hub
+- name: install fasd
+  homebrew: name=fasd
+- name: install ccat
+  homebrew_tap: tap=jingweno/ccat state=present
+- name: install ccat
+  homebrew: name=ccat
+- name: install curl
+  homebrew: name=curl
+- name: install wget
+  homebrew: name=wget
+- name: install adr
+  homebrew: name="olleolleolle/adr-tools/adr_tools"
+
+- name: Install ag
+  homebrew: name=the_silver_searcher state=present
+- name: ag wrapper - git
+  git: repo=https://github.com/sampson-chen/sack.git dest="{{user_home}}/utils/sack"
+- name: ag wrapper - install
+  shell: "chmod +x install_sack.sh && ./install_sack.sh"
+  args:
+      chdir: "{{user_home}}/utils/sack"
+
+- name: "ssh-copy-id"
+  homebrew: name="ssh-copy-id"
+- name: ctags
+  homebrew: name="ctags-exuberant"
+- name: "diff-so-fancy"
+  homebrew: name="diff-so-fancy"
+- name: emacs
+  homebrew: name=emacs-plus install_options=with-cocoa
 - homebrew_cask: name=google-chrome-beta state=installed
 - homebrew_cask: name=flux state=installed
 - homebrew_cask: name=gitx state=installed
@@ -14,5 +62,4 @@
   when: work_apps == true
 - homebrew_cask: name=sophos-anti-virus-home-edition state=installed
   when: work_apps == true
-- homebrew_cask: name=dockertoolbox state=installed
-
+- homebrew_cask: name=docker state=installed

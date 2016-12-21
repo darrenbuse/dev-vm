@@ -1,0 +1,5 @@
+---
+- name: Link files
+  shell: "/bin/sh -c \"{{ user_home }}/workspace-setup/dotfiles/install.sh\""
+  sudo_user: "{{ user }}"
+  sudo: True
